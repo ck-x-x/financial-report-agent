@@ -1,0 +1,6 @@
+aisuite[groq]==0.2.0
+groq==0.37.1
+yfinance==0.2.54
+requests
+pandas
+google-genai>=1.20
