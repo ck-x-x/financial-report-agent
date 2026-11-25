@@ -18,18 +18,7 @@
 
 ## 四階段流程
 
-```mermaid
-flowchart LR
-    Q[中文問題] --> A["① LLM 路由<br/>輸出 JSON<br/>{tool, arguments}"]
-    A --> B["② Python 白名單派送<br/>檢查參數 → 查 SEC / Yahoo<br/>計算年增率、毛利率"]
-    B --> C["③ LLM 寫摘要<br/>只能引用工具回傳的數字<br/>附〔來源編號〕"]
-    C --> D{"④ Python 輸出檢查<br/>數字有根據？<br/>沒有禁用詞？"}
-    D -- 通過 --> E[摘要 + SEC 原文連結 + 免責聲明]
-    D -- 不通過 --> F[帶著問題清單重寫一次]
-    F --> D2{再檢查}
-    D2 -- 仍不通過 --> G[攔截，不顯示摘要]
-    D2 -- 通過 --> E
-```
+<p align="center"><img src="docs/flowchart.svg" alt="四階段流程圖" width="100%"></p>
 
 | 階段 | 誰負責 | 做什麼 |
 |---|---|---|
